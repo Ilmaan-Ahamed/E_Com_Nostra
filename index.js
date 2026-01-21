@@ -10,3 +10,5 @@ function closeNavbar()
     {
         sidenav.style.left="-60%"
     }
+
+
