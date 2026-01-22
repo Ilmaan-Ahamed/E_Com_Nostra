@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment Page</title>
+</head>
+<body>
+
+  <h2>Payment Page</h2>
+  <p>Total Amount: Rs. <span id="amount"></span></p>
+
+  <script>
+    document.getElementById("amount").innerText =
+      localStorage.getItem("price");
+  </script>
+
+</body>
+</html>
