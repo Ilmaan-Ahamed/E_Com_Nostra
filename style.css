@@ -275,11 +275,14 @@ body{
         }
 
         .pay-container {
-            max-width: 800px;
+            
+            max-width: auto;
             background: #f5e2e2;
             padding: 25px;
             border-radius: 8px;
-            margin: auto;
+            margin: 30px;
+            border-style: groove;
+            border-color: darkred;
         }
 
         h2 {
