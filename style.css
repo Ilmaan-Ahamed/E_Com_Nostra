@@ -274,6 +274,73 @@ body{
             font-size: 14px;
         }
 
+        .pay-container {
+            max-width: 800px;
+            background: #f5e2e2;
+            padding: 25px;
+            border-radius: 8px;
+            margin: auto;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Delivery Options */
+        .option-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            
+        }
+
+        .option {
+            flex: 1;
+            border: 2px solid #ffffff;
+            border-radius: 6px;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            gap: 10px;
+            width: 20%;
+            
+        }
+
+        .option-row p{
+            text-align: center;
+            color: rgb(0, 77, 18);
+        }
+
+        .option.active {
+             border-color: #17191f;
+        }
+
+        .option input {
+            margin-top: 5px;
+        }
+
+        /* Form Grid */
+        .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 25px;
+        }
+
+        label {
+        font-size: 13px;
+        margin-bottom: 5px;
+        display: block;
+        }
+
+        input, select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        }
+
 /* Media Qurey*/
 
 @media screen and (max-width:700px) {
