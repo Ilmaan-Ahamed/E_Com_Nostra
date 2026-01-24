@@ -17,10 +17,3 @@ document.querySelectorAll(".new-arrival button")
                     window.location.href = "buy.html";
                                     });
                                 });
-
-
-
-// document.getElementById("buy").onbeforematch(function ())
-//         .addEventListener("click", function(){
-//         window.location.href = "buy.html";
-//         })
