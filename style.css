@@ -300,7 +300,7 @@ body{
 
         .option {
             flex: 1;
-            border: 2px solid #ffffff;
+            border: 2px solid #151414;
             border-radius: 6px;
             padding: 20px;
             cursor: pointer;
@@ -343,6 +343,51 @@ body{
         border: 1px solid #ddd;
         border-radius: 5px;
         }
+
+        /* Payment */
+        .payment {
+            display: flex;
+            justify-content:center;
+            margin-bottom: 15px;
+        }
+
+        .pay-option {
+            border: 1px solid #363030;
+            padding: 12px;
+            border-radius: 6px;
+            width: 30%;
+            cursor: pointer;
+            height: 35px;
+        }
+
+        /* Info */
+        .info-box {
+            background: #d9f5dc;
+            color: #256029;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* Card */
+        .card-row {
+            display:block;
+            gap: 10px;
+        }
+
+        .card-row input {
+            flex: 1;
+        }
+
+        .card-row button {
+            background: #00c853;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
 
 /* Media Qurey*/
 
