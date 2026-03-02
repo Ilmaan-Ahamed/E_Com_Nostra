@@ -1,13 +1,13 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-body{
+body {
     font-family: "Roboto", sans-serif;
 }
 
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,25 +15,26 @@ body{
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
-.navbar-links{
+.navbar-links {
     display: flex;
     column-gap: 20px;
 }
 
-.navbar-links a{
+.navbar-links a {
     text-decoration: none;
     color: #1d232c;
 }
 
-.navbar-links a:hover{
+.navbar-links a:hover {
     text-decoration: underline;
 
 }
 
-.navbar-menu-toggle{
+.navbar-menu-toggle {
     display: none;
 }
-.side-navbar{
+
+.side-navbar {
     background-color: #1d232c;
     width: 50%;
     height: 100%;
@@ -45,29 +46,29 @@ body{
     transition: 2s;
 }
 
-.side-navbar-link{
+.side-navbar-link {
     margin-bottom: 30px;
 
 }
 
-.side-navbar-links a{
+.side-navbar-links a {
     text-decoration: none;
     color: white;
 }
 
-.side-navbar-links a:hover{
+.side-navbar-links a:hover {
     text-decoration: underline;
 }
 
 /*Header*/
-.header{
+.header {
     display: flex;
     justify-content: center;
     gap: 50px;
     padding: 50px;
 }
 
-.header-button{
+.header-button {
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 10px;
@@ -78,42 +79,42 @@ body{
     cursor: pointer;
 }
 
-.service{
+.service {
     padding: 20px;
 }
 
-.service-container-1{
+.service-container-1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.service-container-2{
+.service-container-2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
 }
 
-.service-container-2 div{
-    background-color :#f2f4f7;
+.service-container-2 div {
+    background-color: #f2f4f7;
     border-radius: 5px;
     padding: 10px;
 }
 
-.new-arrival{
+.new-arrival {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.new-arrival-container{
+.new-arrival-container {
     position: relative;
     flex-basis: 20%;
     left: 30px;
 }
 
-.new-arrival button{
+.new-arrival button {
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 5%;
@@ -128,14 +129,14 @@ body{
 }
 
 
-.news{
+.news {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
 }
 
-.news input{
+.news input {
     padding: 11px;
     width: 80vw;
     margin-bottom: 10px;
@@ -143,7 +144,7 @@ body{
     margin-top: 10px;
 }
 
-.news button{
+.news button {
     margin-top: 10px;
     color: #f2f4f7;
     background-color: #1d232c;
@@ -151,22 +152,22 @@ body{
     padding: 10px;
 }
 
-.footer{
+.footer {
     margin-top: 20px;
     padding: 40px;
     background-color: #1d232c;
     color: #f2f4f7;
 }
 
-.footer p{
+.footer p {
     text-align: center;
 }
 
-.product-section{
+.product-section {
     margin-top: 20px;
 }
 
-.product-search{
+.product-search {
     width: 80%;
     border: solid black 2px;
     border-radius: 20px;
@@ -177,332 +178,456 @@ body{
     margin: auto;
 }
 
-.product-search input{
+.product-search input {
     border: none;
     background-color: transparent;
     width: 100%;
 }
 
-.product-search input:focus{
+.product-search input:focus {
     outline: none;
 }
 
-.products{
+.products {
     padding: 20px;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
-    justify-content: space-around;   
+    justify-content: space-around;
 }
 
-.products-box{
+.products-box {
     text-align: center;
     flex-basis: 20%;
 }
 
-.products-box img{
+.products-box img {
     border-radius: 10px;
 }
 
- .contact-container {
-            background: #8ec2e9;
-            width: 100%;
-            max-width: 800px;
+/* Modern Contact Page Redesign */
+.contact-page {
+    background-color: #f8fafc;
+    min-height: calc(100vh - 80px);
+    /* Adjust based on navbar height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
 
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            
-            margin: 50px auto;
-        }
+.contact-card {
+    background: white;
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
 
-        .contact-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
+/* Left Side: Contact Info */
+.contact-visual {
+    background-color: #1d232c;
+    color: white;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+.contact-visual h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
+.contact-visual p {
+    color: #94a3b8;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            outline: none;
-        }
+.info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
 
-        .form-group textarea {
-            resize: none;
-            height: 120px;
-        }
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: #007bff;
-        }
+.info-item i {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
 
-        .btn {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            background: #007bff;
-            color: #fff;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+.info-item:hover i {
+    background: white;
+    color: #1d232c;
+}
 
-        .btn:hover {
-            background: #0056b3;
-        }
+.social-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 50px;
+}
 
-        .contact-info {
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
-            font-size: 14px;
-        }
+.social-link {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s;
+}
 
-        /* Premium Checkout / Payment Design */
-        .checkout-page {
-            background-color: #f8fafc;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
+.social-link:hover {
+    background: white;
+    color: #1d232c;
+    transform: translateY(-3px);
+}
 
-        .checkout-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 30px;
-        }
+/* Right Side: Contact Form */
+.contact-form-side {
+    padding: 50px;
+}
 
-        .checkout-section {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            margin-bottom: 25px;
-        }
+.contact-form-side h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #1e293b;
+}
 
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #1e293b;
-        }
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
-        .section-title i {
-            color: #1d232c;
-        }
+.contact-form-grid .full {
+    grid-column: span 2;
+}
 
-        /* Delivery Options Redesign */
-        .delivery-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 25px;
-        }
+.contact-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
-        .delivery-card {
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+.contact-input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+}
 
-        .delivery-card:hover {
-            border-color: #cbd5e1;
-            background-color: #f8fafc;
-        }
+.contact-input-group input,
+.contact-input-group textarea {
+    padding: 12px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: 0.2s;
+}
 
-        .delivery-card input[type="radio"] {
-            position: absolute;
-            opacity: 0;
-        }
+.contact-input-group textarea {
+    height: 120px;
+    resize: none;
+}
 
-        .delivery-card.active {
-            border-color: #1d232c;
-            background-color: #f1f5f9;
-        }
+.contact-input-group input:focus,
+.contact-input-group textarea:focus {
+    outline: none;
+    border-color: #1d232c;
+    background-color: #f8fafc;
+}
 
-        .delivery-card strong {
-            font-size: 1rem;
-            color: #1e293b;
-        }
+.btn-send {
+    background: #1d232c;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 10px;
+}
 
-        .delivery-card p {
-            font-size: 0.85rem;
-            color: #64748b;
-        }
+.btn-send:hover {
+    background: #2d3748;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-        /* Form Grid Improvement */
-        .checkout-form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
+@media (max-width: 800px) {
+    .contact-card {
+        grid-template-columns: 1fr;
+    }
 
-        .form-full {
-            grid-column: span 2;
-        }
+    .contact-visual {
+        padding: 30px;
+    }
 
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+    .contact-form-side {
+        padding: 30px;
+    }
 
-        .input-group label {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #475569;
-        }
+    .contact-form-grid {
+        grid-template-columns: 1fr;
+    }
 
-        .input-group input, 
-        .input-group select {
-            padding: 12px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            transition: border-color 0.2s;
-        }
+    .contact-form-grid .full {
+        grid-column: span 1;
+    }
+}
 
-        .input-group input:focus, 
-        .input-group select:focus {
-            outline: none;
-            border-color: #1d232c;
-        }
+/* Premium Checkout / Payment Design */
+.checkout-page {
+    background-color: #f8fafc;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
 
-        /* Payment Methods Redesign */
-        .payment-methods {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
+.checkout-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+}
 
-        .payment-method-card {
-            flex: 1;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-weight: 500;
-        }
+.checkout-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+}
 
-        .payment-method-card.active {
-            border-color: #1d232c;
-            background-color: #f8fafc;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1e293b;
+}
 
-        /* Card Info Box */
-        .card-details-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 15px;
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px dashed #cbd5e1;
-        }
+.section-title i {
+    color: #1d232c;
+}
 
-        /* Summary Sidebar */
-        .order-summary {
-            position: sticky;
-            top: 20px;
-        }
+/* Delivery Options Redesign */
+.delivery-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
 
-        .summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            color: #475569;
-            font-size: 0.95rem;
-        }
+.delivery-card {
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
-        .summary-total {
-            border-top: 1.5px solid #e2e8f0;
-            padding-top: 15px;
-            margin-top: 15px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #1e293b;
-        }
+.delivery-card:hover {
+    border-color: #cbd5e1;
+    background-color: #f8fafc;
+}
 
-        .btn-confirm {
-            width: 100%;
-            background-color: #1d232c;
-            color: white;
-            border: none;
-            padding: 16px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-            margin-top: 20px;
-        }
+.delivery-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
 
-        .btn-confirm:hover {
-            background-color: #2d3748;
-        }
+.delivery-card.active {
+    border-color: #1d232c;
+    background-color: #f1f5f9;
+}
 
-        @media (max-width: 900px) {
-            .checkout-container {
-                grid-template-columns: 1fr;
-            }
-            .order-summary {
-                position: static;
-            }
-        }
+.delivery-card strong {
+    font-size: 1rem;
+    color: #1e293b;
+}
+
+.delivery-card p {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* Form Grid Improvement */
+.checkout-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-full {
+    grid-column: span 2;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #475569;
+}
+
+.input-group input,
+.input-group select {
+    padding: 12px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #1d232c;
+}
+
+/* Payment Methods Redesign */
+.payment-methods {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.payment-method-card {
+    flex: 1;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.payment-method-card.active {
+    border-color: #1d232c;
+    background-color: #f8fafc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Card Info Box */
+.card-details-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px dashed #cbd5e1;
+}
+
+/* Summary Sidebar */
+.order-summary {
+    position: sticky;
+    top: 20px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+.summary-total {
+    border-top: 1.5px solid #e2e8f0;
+    padding-top: 15px;
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1e293b;
+}
+
+.btn-confirm {
+    width: 100%;
+    background-color: #1d232c;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 20px;
+}
+
+.btn-confirm:hover {
+    background-color: #2d3748;
+}
+
+@media (max-width: 900px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        position: static;
+    }
+}
 
 
 /* Media Qurey*/
 
 @media screen and (max-width:700px) {
-    .navbar-menu-toggle{
-    display: block;
+    .navbar-menu-toggle {
+        display: block;
     }
 
-    .navbar-links{
+    .navbar-links {
         display: none;
     }
 
-    .header-image{
+    .header-image {
         display: none;
     }
-    
-    .service-container-1{
+
+    .service-container-1 {
         display: none;
     }
-    .service-container-2{
+
+    .service-container-2 {
         flex-direction: column;
     }
 
