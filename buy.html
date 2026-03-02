@@ -1,162 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout | Nostra</title>
-    <!-- Online Fonts Link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:wght@426&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Nostra</title>
+  <!-- Online Fonts Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:wght@426&display=swap"
+    rel="stylesheet">
 
-    <!--Css Link -->
-    <link rel="stylesheet" href="style.css">
+  <!--Css Link -->
+  <link rel="stylesheet" href="style.css">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-    <!--NavBar-->
-    <nav class="navbar">
-        <h1>Nostra</h1>
-        <div class="navbar-links">
-            <p class="navbar-link"><a href="index.html">Home</a></p>
-            <p class="navbar-link"><a href="collection.html">Collections</a></p>
-            <p class="navbar-link"><a href="contact.html">Contact</a></p>
-        </div>
-        <div class="navbar-menu-toggle" onclick="showNavbar()">
-            <i class="fa-solid fa-list"></i>
-        </div>
-    </nav>
+  <!--NavBar-->
+  <nav class="navbar">
+    <h1>Nostra</h1>
+    <div class="navbar-links">
+      <p class="navbar-link"><a href="index.html">Home</a></p>
+      <p class="navbar-link"><a href="collection.html">Collections</a></p>
+      <p class="navbar-link"><a href="contact.html">Contact</a></p>
+    </div>
+    <div class="navbar-menu-toggle" onclick="showNavbar()">
+      <i class="fa-solid fa-list"></i>
+    </div>
+  </nav>
 
-    <main class="checkout-page">
-        <div class="checkout-container">
-            <!-- Left Column: Shipping & Payment -->
-            <div class="checkout-form">
-                
-                <!-- Delivery Section -->
-                <section class="checkout-section">
-                    <h2 class="section-title"><i class="fa-solid fa-truck-fast"></i> Delivery Info</h2>
-                    
-                    <div class="delivery-options">
-                        <label class="delivery-card active">
-                            <input type="radio" name="delivery" checked onclick="this.parentElement.parentElement.querySelectorAll('.delivery-card').forEach(el => el.classList.remove('active')); this.parentElement.classList.add('active');">
-                            <strong><i class="fa-solid fa-house-chimney"></i> Home Delivery</strong>
-                            <p>Delivered by Pick ME (2-3 Days)</p>
-                        </label>
+  <!--Side Navbar-->
+  <div class="side-navbar">
+    <p style="text-align: right;" onclick="closeNavbar()">
+      <i class="fa-solid fa-xmark"></i>
+    </p>
 
-                        <label class="delivery-card">
-                            <input type="radio" name="delivery" onclick="this.parentElement.parentElement.querySelectorAll('.delivery-card').forEach(el => el.classList.remove('active')); this.parentElement.classList.add('active');">
-                            <strong><i class="fa-solid fa-store"></i> Store Pick-up</strong>
-                            <p>Come to our shop & collect</p>
-                        </label>
-                    </div>
+    <div class="side-navbar-links">
+      <p class="side-navbar-link"><a href="index.html">Home</a></p>
+      <p class="side-navbar-link"><a href="collection.html">Collections</a></p>
+      <p class="side-navbar-link"><a href="contact.html">Contact</a></p>
+    </div>
+  </div>
 
-                    <div class="checkout-form-grid">
-                        <div class="input-group">
-                            <label>Province</label>
-                            <select>
-                                <option>Western Province</option>
-                                <option>Central Province</option>
-                                <option>Southern Province</option>
-                                <option>Northern Province</option>
-                                <option>Eastern Province</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label>District</label>
-                            <select>
-                                <option>Colombo</option>
-                                <option>Gampaha</option>
-                                <option>Kalutara</option>
-                                <option>Kandy</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label>Area</label>
-                            <input type="text" placeholder="e.g. Sammanthruai">
-                        </div>
-                        <div class="input-group">
-                            <label>Street Address</label>
-                            <input type="text" placeholder="123/A Old CPO Road">
-                        </div>
-                        <div class="input-group form-full">
-                            <label>Land Mark (Optional)</label>
-                            <input type="text" placeholder="Near The Hospital">
-                        </div>
-                    </div>
-                </section>
+  <main class="checkout-page">
+    <div class="checkout-container">
+      <!-- Left Column: Shipping & Payment -->
+      <div class="checkout-form">
 
-                <!-- Payment Section -->
-                <section class="checkout-section">
-                    <h2 class="section-title"><i class="fa-solid fa-credit-card"></i> Payment Method</h2>
-                    
-                    <div class="payment-methods">
-                        <div class="payment-method-card active">
-                            <i class="fa-solid fa-credit-card"></i> Credit Card
-                        </div>
-                        <div class="payment-method-card">
-                            <i class="fa-brands fa-paypal"></i> PayPal
-                        </div>
-                    </div>
+        <!-- Delivery Section -->
+        <section class="checkout-section">
+          <h2 class="section-title"><i class="fa-solid fa-truck-fast"></i> Delivery Info</h2>
 
-                    <div class="card-details-grid">
-                        <div class="input-group form-full">
-                            <label>Card Number</label>
-                            <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx">
-                        </div>
-                        <div class="input-group">
-                            <label>Expiry Date</label>
-                            <input type="text" placeholder="MM/YY">
-                        </div>
-                        <div class="input-group">
-                            <label>CVC</label>
-                            <input type="text" placeholder="123">
-                        </div>
-                    </div>
-                </section>
+          <div class="delivery-options">
+            <label class="delivery-card active">
+              <input type="radio" name="delivery" checked
+                onclick="this.parentElement.parentElement.querySelectorAll('.delivery-card').forEach(el => el.classList.remove('active')); this.parentElement.classList.add('active');">
+              <strong><i class="fa-solid fa-house-chimney"></i> Home Delivery</strong>
+              <p>Delivered by Pick ME (2-3 Days)</p>
+            </label>
+
+            <label class="delivery-card">
+              <input type="radio" name="delivery"
+                onclick="this.parentElement.parentElement.querySelectorAll('.delivery-card').forEach(el => el.classList.remove('active')); this.parentElement.classList.add('active');">
+              <strong><i class="fa-solid fa-store"></i> Store Pick-up</strong>
+              <p>Come to our shop & collect</p>
+            </label>
+          </div>
+
+          <div class="checkout-form-grid">
+            <div class="input-group">
+              <label>Province</label>
+              <select>
+                <option>Western Province</option>
+                <option>Central Province</option>
+                <option>Southern Province</option>
+                <option>Northern Province</option>
+                <option>Eastern Province</option>
+              </select>
             </div>
+            <div class="input-group">
+              <label>District</label>
+              <select>
+                <option>Colombo</option>
+                <option>Gampaha</option>
+                <option>Kalutara</option>
+                <option>Kandy</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Area</label>
+              <input type="text" placeholder="e.g. Sammanthruai">
+            </div>
+            <div class="input-group">
+              <label>Street Address</label>
+              <input type="text" placeholder="123/A Old CPO Road">
+            </div>
+            <div class="input-group form-full">
+              <label>Land Mark (Optional)</label>
+              <input type="text" placeholder="Near The Hospital">
+            </div>
+          </div>
+        </section>
 
-            <!-- Right Column: Order Summary -->
-            <aside class="order-summary-sidebar">
-                <div class="checkout-section order-summary">
-                    <h2 class="section-title">Order Summary</h2>
-                    
-                    <div class="summary-item">
-                        <span>Items Total (2)</span>
-                        <span>$120.00</span>
-                    </div>
-                    <div class="summary-item">
-                        <span>Shipping Fee</span>
-                        <span>$5.00</span>
-                    </div>
-                    <div class="summary-item">
-                        <span>Discount</span>
-                        <span style="color: #10b981;">-$10.00</span>
-                    </div>
-                    
-                    <div class="summary-total">
-                        <span>Grand Total</span>
-                        <span>$115.00</span>
-                    </div>
+        <!-- Payment Section -->
+        <section class="checkout-section">
+          <h2 class="section-title"><i class="fa-solid fa-credit-card"></i> Payment Method</h2>
 
-                    <button class="btn-confirm">Place Order Now</button>
-                    
-                    <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 15px; text-align: center;">
-                        <i class="fa-solid fa-lock"></i> Secure SSL Encrypted Checkout
-                    </p>
-                </div>
-            </aside>
+          <div class="payment-methods">
+            <div class="payment-method-card active">
+              <i class="fa-solid fa-credit-card"></i> Credit Card
+            </div>
+            <div class="payment-method-card">
+              <i class="fa-brands fa-paypal"></i> PayPal
+            </div>
+          </div>
+
+          <div class="card-details-grid">
+            <div class="input-group form-full">
+              <label>Card Number</label>
+              <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx">
+            </div>
+            <div class="input-group">
+              <label>Expiry Date</label>
+              <input type="text" placeholder="MM/YY">
+            </div>
+            <div class="input-group">
+              <label>CVC</label>
+              <input type="text" placeholder="123">
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column: Order Summary -->
+      <aside class="order-summary-sidebar">
+        <div class="checkout-section order-summary">
+          <h2 class="section-title">Order Summary</h2>
+
+          <div class="summary-item">
+            <span>Items Total (2)</span>
+            <span>$120.00</span>
+          </div>
+          <div class="summary-item">
+            <span>Shipping Fee</span>
+            <span>$5.00</span>
+          </div>
+          <div class="summary-item">
+            <span>Discount</span>
+            <span style="color: #10b981;">-$10.00</span>
+          </div>
+
+          <div class="summary-total">
+            <span>Grand Total</span>
+            <span>$115.00</span>
+          </div>
+
+          <button class="btn-confirm">Place Order Now</button>
+
+          <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 15px; text-align: center;">
+            <i class="fa-solid fa-lock"></i> Secure SSL Encrypted Checkout
+          </p>
         </div>
-    </main>
+      </aside>
+    </div>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 Nostra. All rights reserved.</p>
-    </footer>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Nostra. All rights reserved.</p>
+  </footer>
 
-    <!-- JavaScript Link -->
-    <script src="index.js"></script>
+  <!-- JavaScript Link -->
+  <script src="index.js"></script>
 </body>
+
 </html>
