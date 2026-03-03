@@ -1,10 +1,27 @@
+:root {
+    --bg-primary: #ffffff;
+    --text-primary: #1d232c;
+    --bg-secondary: #f2f4f7;
+    --card-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #111827;
+    --text-primary: #f8fafc;
+    --bg-secondary: #1f2937;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .navbar {
@@ -535,7 +552,17 @@ body {
 }
 
 .section-title i {
-    color: #1d232c;
+    color: var(--text-primary);
+}
+
+.theme-toggle {
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg);
 }
 
 /* Delivery Options Redesign */
