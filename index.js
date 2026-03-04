@@ -32,18 +32,98 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeIcon) {
         themeIcon.className = savedTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     }
+
+    // Active Nav Link Highlighting
+    highlightActiveNav();
+
+    // Initialize Scroll Reveal
+    initScrollReveal();
+
+    // Initialize Back to Top
+    initBackToTop();
 });
 
+// Navigation button handlers
 document.querySelectorAll(".new-arrival button")
     .forEach(function (buy) {
         buy.addEventListener("click", function () {
-            window.location.href = "buy.html";
+            window.location.href = "collection.html";
         });
     });
 
 document.querySelectorAll(".header-button")
     .forEach(function (buy) {
         buy.addEventListener("click", function () {
-            window.location.href = "buy.html";
+            window.location.href = "collection.html";
         });
     });
+
+// ═══════════════════════════════════════════
+// Active Nav Link Highlighting
+// ═══════════════════════════════════════════
+
+function highlightActiveNav() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.navbar-links a, .side-navbar a, .side-navbar-links a');
+
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
+            link.classList.add('active-link');
+        }
+    });
+}
+
+// ═══════════════════════════════════════════
+// Scroll Reveal Animations
+// ═══════════════════════════════════════════
+
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll(
+        '.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale'
+    );
+
+    if (revealElements.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                // Reveal staggered children too
+                const children = entry.target.querySelectorAll(
+                    '.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale'
+                );
+                children.forEach(child => child.classList.add('revealed'));
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+}
+
+// ═══════════════════════════════════════════
+// Back to Top Button
+// ═══════════════════════════════════════════
+
+function initBackToTop() {
+    const btn = document.querySelector('.back-to-top');
+    if (!btn) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
