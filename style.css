@@ -254,19 +254,27 @@ body {
 
 .product-search {
     width: 80%;
-    border: solid var(--text-primary) 1px;
+    border: solid var(--border-color) 1px;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     margin: auto;
+    background-color: var(--bg-secondary);
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .product-search input {
     border: none;
     background-color: transparent;
     width: 100%;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.product-search input::placeholder {
+    color: var(--text-secondary);
 }
 
 .product-search input:focus {
