@@ -259,10 +259,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 10px 15px;
     margin: auto;
     background-color: var(--bg-secondary);
     transition: background-color 0.3s, border-color 0.3s;
+}
+
+.product-search i {
+    color: var(--text-secondary);
 }
 
 .product-search input {
@@ -271,6 +275,7 @@ body {
     width: 100%;
     color: var(--text-primary);
     font-size: 0.95rem;
+    padding-left: 5px;
 }
 
 .product-search input::placeholder {
