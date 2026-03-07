@@ -47,6 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Back to Top
     initBackToTop();
+
+    // Universal Profile Icon Handler
+    document.querySelectorAll('.login-icon-container').forEach(icon => {
+        icon.onclick = () => {
+            const user = localStorage.getItem('nostra-user');
+            window.location.href = user ? 'profile.html' : 'login.html';
+        };
+    });
 });
 
 // Navigation button handlers
