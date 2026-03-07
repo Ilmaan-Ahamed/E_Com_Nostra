@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Nostra</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="auth-page">
+
+    <!-- NavBar (Simplified) -->
+    <nav class="navbar">
+        <h1 onclick="window.location.href='index.html'" style="cursor: pointer;">Nostra</h1>
+        <div class="navbar-icons">
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-card scroll-reveal revealed">
+            <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p>Login to your Nostra account to continue shopping.</p>
+            </div>
+
+            <form class="auth-form" id="loginForm">
+                <div class="auth-input-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="email" placeholder="example@email.com" required>
+                    </div>
+                </div>
+
+                <div class="auth-input-group">
+                    <div class="label-row">
+                        <label for="password">Password</label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                        <i class="fa-regular fa-eye toggle-password" id="togglePassword"></i>
+                    </div>
+                </div>
+
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Keep me logged in</label>
+                </div>
+
+                <button type="submit" class="btn-auth">
+                    <span>Login</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <div class="auth-divider">
+                    <span>Or continue with</span>
+                </div>
+
+                <div class="social-auth">
+                    <button type="button" class="btn-social">
+                        <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google">
+                        Google
+                    </button>
+                    <button type="button" class="btn-social">
+                        <img src="https://www.svgrepo.com/show/448234/facebook.svg" alt="Facebook">
+                        Facebook
+                    </button>
+                </div>
+
+                <p class="auth-footer">
+                    Don't have an account? <a href="#" onclick="alert('Signup page coming soon!')">Create Account</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="index.js"></script>
+    <script>
+        // Password Toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+
+        // Form Submit Simulation
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('.btn-auth');
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Logging in...';
+
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        });
+    </script>
+</body>
+
+</html>
