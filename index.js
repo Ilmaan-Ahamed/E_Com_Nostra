@@ -1,4 +1,5 @@
 
+// Navigation functions
 function showNavbar() {
     var sidenav = document.querySelector(".side-navbar")
     if (sidenav) sidenav.style.left = "0"
@@ -7,6 +8,13 @@ function showNavbar() {
 function closeNavbar() {
     var sidenav = document.querySelector(".side-navbar")
     if (sidenav) sidenav.style.left = "-60%"
+}
+
+function smartNavigate(target) {
+    const user = localStorage.getItem('nostra-user');
+    if (target === 'profile') {
+        window.location.href = user ? 'profile.html' : 'login.html';
+    }
 }
 
 // Theme Toggle Logic
@@ -23,11 +31,13 @@ function toggleTheme() {
     }
 }
 
-// Initialize Theme
+// Initialize Theme & Auth
 document.addEventListener('DOMContentLoaded', () => {
     // Check Authentication (Skip for login page)
-    const currentPage = window.location.pathname;
-    if (!currentPage.includes('login.html')) {
+    const path = window.location.pathname;
+    const isLoginPage = path.includes('login.html');
+
+    if (!isLoginPage) {
         checkAuth();
     }
 
@@ -42,35 +52,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // Active Nav Link Highlighting
     highlightActiveNav();
 
-    // Initialize Scroll Reveal
-    initScrollReveal();
-
-    // Initialize Back to Top
-    initBackToTop();
-
     // Universal Profile Icon Handler
     document.querySelectorAll('.login-icon-container').forEach(icon => {
-        icon.onclick = () => {
-            const user = localStorage.getItem('nostra-user');
-            window.location.href = user ? 'profile.html' : 'login.html';
-        };
+        icon.style.cursor = 'pointer';
+        icon.onclick = () => smartNavigate('profile');
     });
+
+    // Initialize Animations
+    initScrollReveal();
+    initBackToTop();
 });
 
-// Navigation button handlers
-document.querySelectorAll(".new-arrival button")
-    .forEach(function (buy) {
-        buy.addEventListener("click", function () {
-            window.location.href = "collection.html";
-        });
-    });
+// ═══════════════════════════════════════════
+// Authentication Logic
+// ═══════════════════════════════════════════
 
-document.querySelectorAll(".header-button")
-    .forEach(function (buy) {
-        buy.addEventListener("click", function () {
-            window.location.href = "collection.html";
-        });
-    });
+function checkAuth() {
+    const user = localStorage.getItem('nostra-user');
+    if (!user) {
+        console.log("No user session found, redirecting to login...");
+        window.location.href = 'login.html';
+    } else {
+        console.log("Session active:", JSON.parse(user).email);
+    }
+}
+
+function logout() {
+    localStorage.removeItem('nostra-user');
+    window.location.href = 'login.html';
+}
 
 // ═══════════════════════════════════════════
 // Active Nav Link Highlighting
@@ -86,22 +96,6 @@ function highlightActiveNav() {
             link.classList.add('active-link');
         }
     });
-}
-
-// ═══════════════════════════════════════════
-// Authentication Logic
-// ═══════════════════════════════════════════
-
-function checkAuth() {
-    const user = localStorage.getItem('nostra-user');
-    if (!user) {
-        window.location.href = 'login.html';
-    }
-}
-
-function logout() {
-    localStorage.removeItem('nostra-user');
-    window.location.href = 'login.html';
 }
 
 // ═══════════════════════════════════════════
