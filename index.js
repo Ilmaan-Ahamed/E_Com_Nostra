@@ -1,12 +1,12 @@
 
-var sidenav = document.querySelector(".side-navbar")
-
 function showNavbar() {
-    sidenav.style.left = "0"
+    var sidenav = document.querySelector(".side-navbar")
+    if (sidenav) sidenav.style.left = "0"
 }
 
 function closeNavbar() {
-    sidenav.style.left = "-60%"
+    var sidenav = document.querySelector(".side-navbar")
+    if (sidenav) sidenav.style.left = "-60%"
 }
 
 // Theme Toggle Logic
@@ -26,8 +26,8 @@ function toggleTheme() {
 // Initialize Theme
 document.addEventListener('DOMContentLoaded', () => {
     // Check Authentication (Skip for login page)
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    if (currentPage !== 'login.html') {
+    const currentPage = window.location.pathname;
+    if (!currentPage.includes('login.html')) {
         checkAuth();
     }
 

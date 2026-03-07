@@ -122,24 +122,34 @@
         });
 
         // Form Submit Simulation
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const btn = e.target.querySelector('.btn-auth');
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    console.log("Login attempt...");
+                    const emailInput = document.getElementById('email');
+                    const email = emailInput ? emailInput.value : "user@example.com";
+                    const btn = e.target.querySelector('.btn-auth');
 
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Logging in...';
+                    if (btn) btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Logging in...';
 
-            // Create dummy user data
-            const userData = {
-                name: email.split('@')[0], // Use first part of email as name
-                email: email,
-                joinDate: 'March 2026'
-            };
+                    // Create dummy user data
+                    const userData = {
+                        name: email.split('@')[0] || 'User',
+                        email: email,
+                        joinDate: 'March 2026'
+                    };
 
-            setTimeout(() => {
-                localStorage.setItem('nostra-user', JSON.stringify(userData));
-                window.location.href = 'index.html';
-            }, 1000);
+                    setTimeout(() => {
+                        localStorage.setItem('nostra-user', JSON.stringify(userData));
+                        console.log("Login successful, redirecting...");
+                        window.location.href = 'index.html';
+                    }, 1000);
+                });
+            } else {
+                console.error("Login form not found!");
+            }
         });
     </script>
 </body>
