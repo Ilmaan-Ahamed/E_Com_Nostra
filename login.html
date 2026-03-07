@@ -54,7 +54,7 @@
                 <p>Login to your Nostra account to continue shopping.</p>
             </div>
 
-            <form class="auth-form" id="loginForm">
+            <form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
                 <div class="auth-input-group">
                     <label for="email">Email Address</label>
                     <div class="input-wrapper">
@@ -80,7 +80,7 @@
                     <label for="remember">Keep me logged in</label>
                 </div>
 
-                <button type="submit" class="btn-auth">
+                <button type="submit" class="btn-auth" id="loginBtn">
                     <span>Login</span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
@@ -114,43 +114,44 @@
         const togglePassword = document.getElementById('togglePassword');
         const passwordInput = document.getElementById('password');
 
-        togglePassword.addEventListener('click', () => {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            togglePassword.classList.toggle('fa-eye');
-            togglePassword.classList.toggle('fa-eye-slash');
-        });
+        if (togglePassword && passwordInput) {
+            togglePassword.addEventListener('click', () => {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                togglePassword.classList.toggle('fa-eye');
+                togglePassword.classList.toggle('fa-eye-slash');
+            });
+        }
 
-        // Form Submit Simulation
-        document.addEventListener('DOMContentLoaded', () => {
-            const loginForm = document.getElementById('loginForm');
-            if (loginForm) {
-                loginForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    console.log("Login attempt...");
-                    const emailInput = document.getElementById('email');
-                    const email = emailInput ? emailInput.value : "user@example.com";
-                    const btn = e.target.querySelector('.btn-auth');
+        // Direct Login Handler
+        function handleLogin(e) {
+            e.preventDefault();
 
-                    if (btn) btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Logging in...';
+            const emailValue = document.getElementById('email').value;
+            const btn = document.getElementById('loginBtn');
 
-                    // Create dummy user data
-                    const userData = {
-                        name: email.split('@')[0] || 'User',
-                        email: email,
-                        joinDate: 'March 2026'
-                    };
-
-                    setTimeout(() => {
-                        localStorage.setItem('nostra-user', JSON.stringify(userData));
-                        console.log("Login successful, redirecting...");
-                        window.location.href = 'index.html';
-                    }, 1000);
-                });
-            } else {
-                console.error("Login form not found!");
+            if (btn) {
+                btn.innerHTML = '<span>Logging in...</span> <i class="fa-solid fa-circle-notch fa-spin"></i>';
+                btn.style.opacity = '0.7';
+                btn.disabled = true;
             }
-        });
+
+            // Save user data
+            const userData = {
+                name: emailValue.split('@')[0] || 'User',
+                email: emailValue,
+                loggedIn: true
+            };
+
+            localStorage.setItem('nostra-user', JSON.stringify(userData));
+
+            // Force redirect after a short delay
+            setTimeout(() => {
+                window.location.replace('index.html');
+            }, 800);
+
+            return false;
+        }
     </script>
 </body>
 
