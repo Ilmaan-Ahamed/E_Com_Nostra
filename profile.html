@@ -145,21 +145,24 @@
     <script>
         // Check Auth on page load
         document.addEventListener('DOMContentLoaded', () => {
-            const user = JSON.parse(localStorage.getItem('nostra-user'));
-            if (!user) {
+            const userDataString = localStorage.getItem('nostra-user');
+            if (!userDataString) {
                 window.location.href = 'login.html';
                 return;
             }
 
+            const user = JSON.parse(userDataString);
+
             // Update UI with user data
-            document.getElementById('profileName').textContent = user.name;
-            document.getElementById('profileEmail').textContent = user.email;
-            document.getElementById('profileAvatar').src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=1d232c&color=fff&size=128`;
+            document.getElementById('profileName').textContent = user.name || 'User';
+            document.getElementById('profileEmail').textContent = user.email || 'No email provided';
+
+            const avatarName = encodeURIComponent(user.name || 'User');
+            document.getElementById('profileAvatar').src = `https://ui-avatars.com/api/?name=${avatarName}&background=1d232c&color=fff&size=128`;
 
             // Render cart sample if items exist
             renderProfileCart();
         });
-
         function renderProfileCart() {
             const container = document.getElementById('profile-cart-items');
             if (cart.length === 0) return;
