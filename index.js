@@ -25,6 +25,12 @@ function toggleTheme() {
 
 // Initialize Theme
 document.addEventListener('DOMContentLoaded', () => {
+    // Check Authentication (Skip for login page)
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    if (currentPage !== 'login.html') {
+        checkAuth();
+    }
+
     const savedTheme = localStorage.getItem('nostra-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
@@ -72,6 +78,22 @@ function highlightActiveNav() {
             link.classList.add('active-link');
         }
     });
+}
+
+// ═══════════════════════════════════════════
+// Authentication Logic
+// ═══════════════════════════════════════════
+
+function checkAuth() {
+    const user = localStorage.getItem('nostra-user');
+    if (!user) {
+        window.location.href = 'login.html';
+    }
+}
+
+function logout() {
+    localStorage.removeItem('nostra-user');
+    window.location.href = 'login.html';
 }
 
 // ═══════════════════════════════════════════

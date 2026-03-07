@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Nostra</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="profile-page">
+
+    <!--NavBar-->
+    <nav class="navbar">
+        <h1 onclick="window.location.href='index.html'" style="cursor: pointer;">Nostra</h1>
+        <div class="navbar-links">
+            <p class="navbar-link"><a href="index.html">Home</a></p>
+            <p class="navbar-link"><a href="collection.html">Collections</a></p>
+            <p class="navbar-link"><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="navbar-icons">
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon"></i>
+            </div>
+            <div class="cart-icon-container" onclick="window.location.href='buy.html'">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-badge">0</span>
+            </div>
+            <div class="login-icon-container" onclick="window.location.href='profile.html'">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="navbar-menu-toggle" onclick="showNavbar()">
+                <i class="fa-solid fa-list"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!--Side Navbar-->
+    <div class="side-navbar">
+        <p style="text-align: right;" onclick="closeNavbar()">
+            <i class="fa-solid fa-xmark"></i>
+        </p>
+        <div class="side-navbar-links">
+            <p class="side-navbar-link"><a href="index.html">Home</a></p>
+            <p class="side-navbar-link"><a href="collection.html">Collections</a></p>
+            <p class="side-navbar-link"><a href="contact.html">Contact</a></p>
+            <p class="side-navbar-link"><a href="profile.html">My Account</a></p>
+        </div>
+    </div>
+
+    <div class="profile-container scroll-reveal revealed">
+        <!-- Sidebar -->
+        <aside class="profile-sidebar">
+            <div class="user-card">
+                <div class="avatar-wrapper">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=1d232c&color=fff&size=128"
+                        alt="User Avatar" id="profileAvatar">
+                </div>
+                <div class="user-info">
+                    <h3 id="profileName">John Doe</h3>
+                    <p id="profileEmail">john.doe@example.com</p>
+                </div>
+                <div class="profile-nav">
+                    <a href="#" class="profile-btn active"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+                    <a href="buy.html" class="profile-btn"><i class="fa-solid fa-cart-shopping"></i> My Cart</a>
+                    <button class="profile-btn btn-logout" onclick="logout()"><i
+                            class="fa-solid fa-right-from-bracket"></i> Logout</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="profile-content">
+            <!-- Order History -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h3><i class="fa-solid fa-clock-rotate-left"></i> Recent Orders</h3>
+                    <a href="#" class="forgot-link">View All</a>
+                </div>
+                <div class="order-list" id="orderList">
+                    <!-- Sample Order -->
+                    <div class="order-card">
+                        <div class="order-details">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=100&auto=format&fit=crop"
+                                alt="Item">
+                            <div class="order-meta">
+                                <h4>Gray Zip Hoodie</h4>
+                                <p>Ordered on: 12 Oct 2026</p>
+                                <p>Total: LKR 4,500/-</p>
+                            </div>
+                        </div>
+                        <span class="order-status status-shipped">Shipped</span>
+                    </div>
+
+                    <div class="order-card">
+                        <div class="order-details">
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=100&auto=format&fit=crop"
+                                alt="Item">
+                            <div class="order-meta">
+                                <h4>White Classic Sneakers</h4>
+                                <p>Ordered on: 05 Oct 2026</p>
+                                <p>Total: LKR 8,200/-</p>
+                            </div>
+                        </div>
+                        <span class="order-status status-pending">Pending</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cart Preview -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h3><i class="fa-solid fa-bag-shopping"></i> Items in Cart</h3>
+                    <button class="btn-send" onclick="window.location.href='buy.html'">Checkout Now</button>
+                </div>
+                <div id="profile-cart-items">
+                    <!-- Populated by JS -->
+                    <div class="empty-state">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <p>Your cart is currently empty.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Nostra. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="cart.js"></script>
+    <script src="index.js"></script>
+    <script>
+        // Check Auth on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('nostra-user'));
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Update UI with user data
+            document.getElementById('profileName').textContent = user.name;
+            document.getElementById('profileEmail').textContent = user.email;
+            document.getElementById('profileAvatar').src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=1d232c&color=fff&size=128`;
+
+            // Render cart sample if items exist
+            renderProfileCart();
+        });
+
+        function renderProfileCart() {
+            const container = document.getElementById('profile-cart-items');
+            if (cart.length === 0) return;
+
+            container.innerHTML = cart.slice(0, 3).map(item => `
+                <div class="order-card">
+                    <div class="order-details">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="order-meta">
+                            <h4>${item.name}</h4>
+                            <p>Price: LKR ${item.price}/-</p>
+                        </div>
+                    </div>
+                    <button class="profile-btn" style="width: auto;" onclick="window.location.href='buy.html'">View</button>
+                </div>
+            `).join('');
+
+            if (cart.length > 3) {
+                container.innerHTML += `<p style="text-align:center; padding-top:15px; font-size:0.9rem; color:var(--text-secondary)">+ ${cart.length - 3} more items in cart</p>`;
+            }
+        }
+    </script>
+</body>
+
+</html>
