@@ -1599,6 +1599,59 @@ body {
     color: var(--text-secondary);
 }
 
+/* Account Details Grid */
+.account-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.detail-item {
+    padding: 15px;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s;
+}
+
+.detail-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-color: var(--accent-color);
+}
+
+.detail-item label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-item label i {
+    color: var(--accent-color);
+}
+
+.detail-item p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+@media screen and (max-width: 900px) {
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-sidebar {
+        position: static;
+    }
+}
+
 .order-status {
     padding: 6px 12px;
     border-radius: 20px;
