@@ -359,7 +359,7 @@ img {
     left: 50%;
     bottom: 1.4rem;
     transform: translateX(-50%);
-    background: rgba(70, 13, 13, 0.337);
+    background: rgba(51, 12, 12, 0.337);
     color: var(--text);
     border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 999px;
@@ -372,6 +372,7 @@ img {
     transform: translate(-50%, -2px);
     background: var(--accent);
     color: #fff;
+    background-color: #914040c9;
 }
 
 .news {
