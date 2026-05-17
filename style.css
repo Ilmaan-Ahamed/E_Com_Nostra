@@ -439,13 +439,14 @@ img {
 }
 
 .footer-box-1 {
-    max-width: 520px;
+    max-width:fit-content;
 }
 
 .footer-icon-container {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
+    
 }
 
 .footer-icon-container i {
@@ -458,6 +459,8 @@ img {
     color: var(--text);
     cursor: pointer;
     transition: transform 0.25s ease;
+    
+    
 }
 
 .footer-icon-container i:hover {
