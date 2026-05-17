@@ -359,7 +359,7 @@ img {
     left: 50%;
     bottom: 1.4rem;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(70, 13, 13, 0.337);
     color: var(--text);
     border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 999px;
